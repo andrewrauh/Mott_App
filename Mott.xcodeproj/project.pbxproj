@@ -1,0 +1,275 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9380CEE144CABBA00FC7F17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CED144CABBA00FC7F17 /* UIKit.framework */; };
+		F9380CF0144CABBA00FC7F17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CEF144CABBA00FC7F17 /* Foundation.framework */; };
+		F9380CF6144CABBA00FC7F17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9380CF4144CABBA00FC7F17 /* InfoPlist.strings */; };
+		F9380CF8144CABBA00FC7F17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9380CF7144CABBA00FC7F17 /* main.m */; };
+		F9380CFC144CABBA00FC7F17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F9380CFB144CABBA00FC7F17 /* AppDelegate.m */; };
+		F9380CFF144CABBA00FC7F17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9380CFE144CABBA00FC7F17 /* ViewController.m */; };
+		F9380D02144CABBA00FC7F17 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9380D00144CABBA00FC7F17 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F9380CE9144CABBA00FC7F17 /* Mott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mott.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9380CED144CABBA00FC7F17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F9380CEF144CABBA00FC7F17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F9380CF3144CABBA00FC7F17 /* Mott-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mott-Info.plist"; sourceTree = "<group>"; };
+		F9380CF5144CABBA00FC7F17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F9380CF7144CABBA00FC7F17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F9380CF9144CABBA00FC7F17 /* Mott-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mott-Prefix.pch"; sourceTree = "<group>"; };
+		F9380CFA144CABBA00FC7F17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F9380CFB144CABBA00FC7F17 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F9380CFD144CABBA00FC7F17 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F9380CFE144CABBA00FC7F17 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F9380D01144CABBA00FC7F17 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9380CE6144CABBA00FC7F17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9380CEE144CABBA00FC7F17 /* UIKit.framework in Frameworks */,
+				F9380CF0144CABBA00FC7F17 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9380CDE144CABBA00FC7F17 = {
+			isa = PBXGroup;
+			children = (
+				F9380CF1144CABBA00FC7F17 /* Mott */,
+				F9380CEC144CABBA00FC7F17 /* Frameworks */,
+				F9380CEA144CABBA00FC7F17 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9380CEA144CABBA00FC7F17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9380CE9144CABBA00FC7F17 /* Mott.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9380CEC144CABBA00FC7F17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F9380CED144CABBA00FC7F17 /* UIKit.framework */,
+				F9380CEF144CABBA00FC7F17 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9380CF1144CABBA00FC7F17 /* Mott */ = {
+			isa = PBXGroup;
+			children = (
+				F9380CFA144CABBA00FC7F17 /* AppDelegate.h */,
+				F9380CFB144CABBA00FC7F17 /* AppDelegate.m */,
+				F9380CFD144CABBA00FC7F17 /* ViewController.h */,
+				F9380CFE144CABBA00FC7F17 /* ViewController.m */,
+				F9380D00144CABBA00FC7F17 /* ViewController.xib */,
+				F9380CF2144CABBA00FC7F17 /* Supporting Files */,
+			);
+			path = Mott;
+			sourceTree = "<group>";
+		};
+		F9380CF2144CABBA00FC7F17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9380CF3144CABBA00FC7F17 /* Mott-Info.plist */,
+				F9380CF4144CABBA00FC7F17 /* InfoPlist.strings */,
+				F9380CF7144CABBA00FC7F17 /* main.m */,
+				F9380CF9144CABBA00FC7F17 /* Mott-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9380CE8144CABBA00FC7F17 /* Mott */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9380D05144CABBA00FC7F17 /* Build configuration list for PBXNativeTarget "Mott" */;
+			buildPhases = (
+				F9380CE5144CABBA00FC7F17 /* Sources */,
+				F9380CE6144CABBA00FC7F17 /* Frameworks */,
+				F9380CE7144CABBA00FC7F17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mott;
+			productName = Mott;
+			productReference = F9380CE9144CABBA00FC7F17 /* Mott.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9380CE0144CABBA00FC7F17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = F9380CE3144CABBA00FC7F17 /* Build configuration list for PBXProject "Mott" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F9380CDE144CABBA00FC7F17;
+			productRefGroup = F9380CEA144CABBA00FC7F17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9380CE8144CABBA00FC7F17 /* Mott */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9380CE7144CABBA00FC7F17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9380CF6144CABBA00FC7F17 /* InfoPlist.strings in Resources */,
+				F9380D02144CABBA00FC7F17 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9380CE5144CABBA00FC7F17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9380CF8144CABBA00FC7F17 /* main.m in Sources */,
+				F9380CFC144CABBA00FC7F17 /* AppDelegate.m in Sources */,
+				F9380CFF144CABBA00FC7F17 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F9380CF4144CABBA00FC7F17 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9380CF5144CABBA00FC7F17 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F9380D00144CABBA00FC7F17 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9380D01144CABBA00FC7F17 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F9380D03144CABBA00FC7F17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F9380D04144CABBA00FC7F17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F9380D06144CABBA00FC7F17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mott/Mott-Prefix.pch";
+				INFOPLIST_FILE = "Mott/Mott-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F9380D07144CABBA00FC7F17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mott/Mott-Prefix.pch";
+				INFOPLIST_FILE = "Mott/Mott-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9380CE3144CABBA00FC7F17 /* Build configuration list for PBXProject "Mott" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9380D03144CABBA00FC7F17 /* Debug */,
+				F9380D04144CABBA00FC7F17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9380D05144CABBA00FC7F17 /* Build configuration list for PBXNativeTarget "Mott" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9380D06144CABBA00FC7F17 /* Debug */,
+				F9380D07144CABBA00FC7F17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F9380CE0144CABBA00FC7F17 /* Project object */;
+}
