@@ -9,6 +9,8 @@
 #import "TileDisplayView.h"
 
 @implementation TileDisplayView
+@synthesize firstName, lastName, firstNameLabel, lastNameLabel;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +34,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    firstNameLabel.text = firstName;
+    lastNameLabel.text = lastName;
 }
 
 - (void)viewDidUnload
@@ -41,7 +51,11 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
+-(IBAction)dismissModal:(id)sender{
+    firstNameLabel.text = @" ";
+    lastNameLabel.text = @" ";
+    [self dismissModalViewControllerAnimated:YES];
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

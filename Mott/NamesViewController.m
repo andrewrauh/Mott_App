@@ -8,9 +8,10 @@
 
 #import "NamesViewController.h"
 #import "ViewController.h"
+#import "TileDisplayView.h"
 @implementation NamesViewController
 @synthesize  tbView;
-@synthesize  firstNames, lastNames;
+@synthesize  firstNames, lastNames, tileDisplayView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -73,8 +74,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.tileDisplayView==nil)
+    {
+        TileDisplayView *tvc = [[TileDisplayView alloc]initWithNibName:@"TileDisplayView" bundle:[NSBundle mainBundle]];
+        self.tileDisplayView = tvc;
+        [tvc release];
+    }
+    [self.tileDisplayView setFirstName:[firstNames objectAtIndex:indexPath.row]];
+    [self.tileDisplayView setLastName:[lastNames objectAtIndex:indexPath.row]]
+    ;
+       
+    [self presentModalViewController:self.tileDisplayView animated:YES];
     
 } 
+
+-(IBAction)dismissModal:(id)sender{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 - (void)viewDidUnload
 {

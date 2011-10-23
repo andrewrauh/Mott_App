@@ -25,6 +25,13 @@
 		F93D87041453944B0037481D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93D87031453944B0037481D /* CoreGraphics.framework */; };
 		F93D87081453BC030037481D /* TileDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F93D87061453BC020037481D /* TileDisplayView.m */; };
 		F93D87091453BC030037481D /* TileDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F93D87071453BC020037481D /* TileDisplayView.xib */; };
+		F93D87111453C5D10037481D /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870A1453C5D10037481D /* bg.png */; };
+		F93D87121453C5D10037481D /* new_bg_hand_big.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870B1453C5D10037481D /* new_bg_hand_big.png */; };
+		F93D87131453C5D10037481D /* new_bg_hand_yellow_big.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870C1453C5D10037481D /* new_bg_hand_yellow_big.png */; };
+		F93D87141453C5D10037481D /* new_bg_hand_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870D1453C5D10037481D /* new_bg_hand_yellow.png */; };
+		F93D87151453C5D10037481D /* new_bg_hand.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870E1453C5D10037481D /* new_bg_hand.png */; };
+		F93D87161453C5D10037481D /* tile_project.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870F1453C5D10037481D /* tile_project.png */; };
+		F93D87171453C5D10037481D /* tiles_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D87101453C5D10037481D /* tiles_bottom.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +67,13 @@
 		F93D87051453BC020037481D /* TileDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileDisplayView.h; path = Mott/TileDisplayView.h; sourceTree = "<group>"; };
 		F93D87061453BC020037481D /* TileDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TileDisplayView.m; path = Mott/TileDisplayView.m; sourceTree = "<group>"; };
 		F93D87071453BC020037481D /* TileDisplayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TileDisplayView.xib; path = Mott/TileDisplayView.xib; sourceTree = "<group>"; };
+		F93D870A1453C5D10037481D /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		F93D870B1453C5D10037481D /* new_bg_hand_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_bg_hand_big.png; sourceTree = "<group>"; };
+		F93D870C1453C5D10037481D /* new_bg_hand_yellow_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_bg_hand_yellow_big.png; sourceTree = "<group>"; };
+		F93D870D1453C5D10037481D /* new_bg_hand_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_bg_hand_yellow.png; sourceTree = "<group>"; };
+		F93D870E1453C5D10037481D /* new_bg_hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_bg_hand.png; sourceTree = "<group>"; };
+		F93D870F1453C5D10037481D /* tile_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_project.png; sourceTree = "<group>"; };
+		F93D87101453C5D10037481D /* tiles_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_bottom.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +126,13 @@
 		F9380CF1144CABBA00FC7F17 /* Mott */ = {
 			isa = PBXGroup;
 			children = (
+				F93D870A1453C5D10037481D /* bg.png */,
+				F93D870B1453C5D10037481D /* new_bg_hand_big.png */,
+				F93D870C1453C5D10037481D /* new_bg_hand_yellow_big.png */,
+				F93D870D1453C5D10037481D /* new_bg_hand_yellow.png */,
+				F93D870E1453C5D10037481D /* new_bg_hand.png */,
+				F93D870F1453C5D10037481D /* tile_project.png */,
+				F93D87101453C5D10037481D /* tiles_bottom.png */,
 				F93D86E61453817C0037481D /* JSON */,
 				F9380CFA144CABBA00FC7F17 /* AppDelegate.h */,
 				F9380CFB144CABBA00FC7F17 /* AppDelegate.m */,
@@ -208,6 +229,13 @@
 				F9380D02144CABBA00FC7F17 /* ViewController.xib in Resources */,
 				F93D8702145385110037481D /* NamesViewController.xib in Resources */,
 				F93D87091453BC030037481D /* TileDisplayView.xib in Resources */,
+				F93D87111453C5D10037481D /* bg.png in Resources */,
+				F93D87121453C5D10037481D /* new_bg_hand_big.png in Resources */,
+				F93D87131453C5D10037481D /* new_bg_hand_yellow_big.png in Resources */,
+				F93D87141453C5D10037481D /* new_bg_hand_yellow.png in Resources */,
+				F93D87151453C5D10037481D /* new_bg_hand.png in Resources */,
+				F93D87161453C5D10037481D /* tile_project.png in Resources */,
+				F93D87171453C5D10037481D /* tiles_bottom.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
