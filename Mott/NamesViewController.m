@@ -36,9 +36,27 @@
     [super viewDidLoad];
     self.tbView.dataSource = self;
     self.tbView.delegate = self;
+    self.tbView.rowHeight = 90;
     
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"FIRST NAMES: ");
+    for(int i =0;i<[firstNames count];i++)
+    {
+        NSLog(@"%@ ",[firstNames objectAtIndex:i]);
+    }
+    
+    NSLog(@"LAST NAMES: ");
+    for(int i =0;i<[lastNames count];i++)
+    {
+        NSLog(@"%@ ",[lastNames objectAtIndex:i]);
+    }
+    [tbView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -53,6 +71,7 @@
 
 // Customize the <span id="IL_AD9" class="IL_AD">appearance</span> of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -65,8 +84,14 @@
     NSDictionary *nameResult = [nameResults objectAtIndex:[indexPath row]];
     [cell.textLabel setText:[NSString stringWithFormat:[nameResult objectForKey:@"FIRST"]]];
      */
+    
     NSString *firstName = [firstNames objectAtIndex:indexPath.row];
+    NSLog(@"First Name of cell: %@",firstName);
     NSString *lastName = [lastNames objectAtIndex:indexPath.row];
+     NSLog(@"Last Name of cell: %@",lastName);
+   
+    [[cell imageView] setImage:[UIImage imageNamed:@"football.jpg"]];
+    
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@",firstName, lastName]];
     
     
@@ -81,8 +106,7 @@
         [tvc release];
     }
     [self.tileDisplayView setFirstName:[firstNames objectAtIndex:indexPath.row]];
-    [self.tileDisplayView setLastName:[lastNames objectAtIndex:indexPath.row]]
-    ;
+    [self.tileDisplayView setLastName:[lastNames objectAtIndex:indexPath.row]];
        
     [self presentModalViewController:self.tileDisplayView animated:YES];
     

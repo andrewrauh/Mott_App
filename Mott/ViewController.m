@@ -25,8 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    firstNames = [[NSMutableArray alloc]init];
-    lastNames = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -54,6 +52,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    
     [super viewWillAppear:animated];
 }
 
@@ -62,6 +61,8 @@
     //NSURLRequest *request = 
     //NSString *firstName = [namesArray objectAtIndex:0];
     //NSLog(names);
+    firstNames = [[NSMutableArray alloc]init];
+    lastNames = [[NSMutableArray alloc]init];
     NSString *requestString;
     if([namesArray count]==1){
         NSLog(@"OBJECT AT INDEX 1 WAS NIL");
@@ -104,14 +105,15 @@
     }
     [namesView setFirstNames:firstNames];
     [namesView setLastNames:lastNames];
+    
+    firstNames = nil;
+    [firstNames release];
+    lastNames = nil;
+    [lastNames release];
+    
     [self presentModalViewController:self.namesView animated:YES];
      
 
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

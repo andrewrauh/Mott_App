@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TileDisplayView.h"
+
 @interface NamesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource >{
     IBOutlet UITableView *tbView; 
+   // IBOutlet CustomTableViewCell *customCell;
     NSMutableArray *firstNames;
     NSMutableArray *lastNames;
     TileDisplayView *tileDisplayView;
