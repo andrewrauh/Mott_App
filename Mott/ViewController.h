@@ -16,6 +16,7 @@
     NSDictionary  *namesResults;
     NSMutableArray *firstNames;
     NSMutableArray *lastNames;
+    NSMutableArray *picLoc;
     NamesViewController *namesView;
 
 }
@@ -26,4 +27,6 @@
 @property(nonatomic, retain) NamesViewController *namesView;
 
 -(void) getDataWithUrlNamesArray:(NSArray*)namesArray;
+- (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString;
+
 @end

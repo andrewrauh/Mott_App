@@ -15,10 +15,16 @@
     NSMutableArray *firstNames;
     NSMutableArray *lastNames;
     TileDisplayView *tileDisplayView;
+    NSMutableArray *picLoc;
+    NSString *finalUrl;
 }
 @property (nonatomic,retain) IBOutlet UITableView *tbView;
 @property (nonatomic, retain) NSMutableArray *firstNames;
 @property (nonatomic,retain)NSMutableArray *lastNames;
+@property (nonatomic, retain) NSMutableArray *picLoc;
 @property (nonatomic,retain)TileDisplayView *tileDisplayView;
+
 -(IBAction)dismissModal:(id)sender;
+- (UIImage *) getCachedImage: (NSString *) ImageURLString;
+
 @end

@@ -11,7 +11,7 @@
 #import "TileDisplayView.h"
 @implementation NamesViewController
 @synthesize  tbView;
-@synthesize  firstNames, lastNames, tileDisplayView;
+@synthesize  firstNames, lastNames, tileDisplayView, picLoc;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,8 +36,7 @@
     [super viewDidLoad];
     self.tbView.dataSource = self;
     self.tbView.delegate = self;
-    self.tbView.rowHeight = 90;
-    
+    self.tbView.rowHeight = 90;    
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -89,8 +88,12 @@
     NSLog(@"First Name of cell: %@",firstName);
     NSString *lastName = [lastNames objectAtIndex:indexPath.row];
      NSLog(@"Last Name of cell: %@",lastName);
-   
-    [[cell imageView] setImage:[UIImage imageNamed:@"football.jpg"]];
+    NSString *picturePath = [picLoc objectAtIndex:indexPath.row];
+    
+    UIImage *cashedImage = [self getCachedImage:picturePath];
+    
+    [[cell imageView] setImage:cashedImage];
+
     
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@",firstName, lastName]];
     
@@ -107,6 +110,7 @@
     }
     [self.tileDisplayView setFirstName:[firstNames objectAtIndex:indexPath.row]];
     [self.tileDisplayView setLastName:[lastNames objectAtIndex:indexPath.row]];
+    [self.tileDisplayView setPicLoc:[picLoc objectAtIndex:indexPath.row]];
        
     [self presentModalViewController:self.tileDisplayView animated:YES];
     
@@ -114,6 +118,19 @@
 
 -(IBAction)dismissModal:(id)sender{
     [self dismissModalViewControllerAnimated:YES];
+}
+
+
+
+- (UIImage *) getCachedImage: (NSString *) ImageURLString 
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]];
+    
+    return [UIImage imageWithContentsOfFile:fullPath];
 }
 
 - (void)viewDidUnload

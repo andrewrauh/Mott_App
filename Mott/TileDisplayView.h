@@ -12,13 +12,18 @@
 @interface TileDisplayView : UIViewController{
     NSString *firstName;
     NSString *lastName;
+    NSString *picLoc;
     IBOutlet    UILabel *firstNameLabel;
     IBOutlet    UILabel *lastNameLabel;
+    IBOutlet    UIImageView *imageView;
 }
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *picLoc;
 @property (nonatomic, retain) IBOutlet UILabel *firstNameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *lastNameLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+- (UIImage *) getCachedImage: (NSString *) ImageURLString;
 
 
 -(IBAction)dismissModal:(id)sender;

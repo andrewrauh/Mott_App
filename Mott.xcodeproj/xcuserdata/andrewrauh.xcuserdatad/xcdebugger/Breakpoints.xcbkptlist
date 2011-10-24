@@ -8,13 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Mott/NamesViewController.m"
-         timestampString = "341038320.952455"
+         filePath = "Mott/ViewController.m"
+         timestampString = "341124612.816165"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "111"
-         endingLineNumber = "111"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         startingLineNumber = "114"
+         endingLineNumber = "114"
+         landmarkName = "-getDataWithUrlNamesArray:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -9,7 +9,7 @@
 #import "TileDisplayView.h"
 
 @implementation TileDisplayView
-@synthesize firstName, lastName, firstNameLabel, lastNameLabel;
+@synthesize firstName, lastName, firstNameLabel, lastNameLabel, picLoc, imageView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,12 +37,24 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+- (UIImage *) getCachedImage: (NSString *) ImageURLString 
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]];
+    
+    return [UIImage imageWithContentsOfFile:fullPath];
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
     firstNameLabel.text = firstName;
     lastNameLabel.text = lastName;
+    imageView.image = [self getCachedImage:picLoc];
+
 }
 
 - (void)viewDidUnload
