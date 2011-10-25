@@ -34,6 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bgE.png"]];
+    
+    //self.view.backgroundColor = background;
+
     
     // Do any additional setup after loading the view from its nib.
 }

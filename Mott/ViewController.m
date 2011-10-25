@@ -10,7 +10,7 @@
 #import "JSON.h"
 #import "NamesViewController.h"
 @implementation ViewController 
-@synthesize enterName, namesView;
+@synthesize enterName, namesView, navBar, aboutView;
 
 
 
@@ -24,7 +24,16 @@
 
 - (void)viewDidLoad
 {
+    [[self navigationController] navigationBar];
+    UIImage *backgroundImage = [UIImage imageNamed:@"tile_projectED.png"];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    
+    /*UINavigationBar *navBar = [[self navigationController] navigationBar];
+    UIImage *backgroundImage = [UIImage imageNamed:@"tile_project.png"];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];*/
+     
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -137,7 +146,17 @@
      
 
 }
-
+-(IBAction)openAboutUs:(id)sender {
+    
+    if(self.aboutView==nil)
+    {
+        aboutViewController *abv = [[aboutViewController alloc]initWithNibName:@"aboutViewController" bundle:[NSBundle mainBundle]];
+        self.aboutView = abv;
+        [self presentModalViewController:abv animated:YES];
+        [abv release];}
+    
+    
+}
 - (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString
 {
     //NSURL *ImageURL = [NSURL URLWithString: ImageURLString];

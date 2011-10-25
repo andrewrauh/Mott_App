@@ -33,6 +33,12 @@
 		F93D87161453C5D10037481D /* tile_project.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870F1453C5D10037481D /* tile_project.png */; };
 		F93D87171453C5D10037481D /* tiles_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D87101453C5D10037481D /* tiles_bottom.png */; };
 		F93D87191453C96F0037481D /* football.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F93D87181453C96F0037481D /* football.jpg */; };
+		F9B407FC14575032001D2247 /* bgE.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B407FB14575032001D2247 /* bgE.png */; };
+		F9B4080114575434001D2247 /* aboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407FF14575434001D2247 /* aboutViewController.m */; };
+		F9B4080214575434001D2247 /* aboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9B4080014575434001D2247 /* aboutViewController.xib */; };
+		F9B408051457546C001D2247 /* MSuite+Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B408031457546C001D2247 /* MSuite+Logo.png */; };
+		F9B408061457546C001D2247 /* SampleAboutPage.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B408041457546C001D2247 /* SampleAboutPage.png */; };
+		F9D8CD0B14575E6A0047F90A /* tile_projectED.png in Resources */ = {isa = PBXBuildFile; fileRef = F9D8CD0A14575E6A0047F90A /* tile_projectED.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +82,13 @@
 		F93D870F1453C5D10037481D /* tile_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_project.png; sourceTree = "<group>"; };
 		F93D87101453C5D10037481D /* tiles_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_bottom.png; sourceTree = "<group>"; };
 		F93D87181453C96F0037481D /* football.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = football.jpg; sourceTree = "<group>"; };
+		F9B407FB14575032001D2247 /* bgE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgE.png; sourceTree = "<group>"; };
+		F9B407FE14575434001D2247 /* aboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutViewController.h; sourceTree = "<group>"; };
+		F9B407FF14575434001D2247 /* aboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutViewController.m; sourceTree = "<group>"; };
+		F9B4080014575434001D2247 /* aboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutViewController.xib; sourceTree = "<group>"; };
+		F9B408031457546C001D2247 /* MSuite+Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSuite+Logo.png"; sourceTree = "<group>"; };
+		F9B408041457546C001D2247 /* SampleAboutPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SampleAboutPage.png; sourceTree = "<group>"; };
+		F9D8CD0A14575E6A0047F90A /* tile_projectED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_projectED.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +141,10 @@
 		F9380CF1144CABBA00FC7F17 /* Mott */ = {
 			isa = PBXGroup;
 			children = (
+				F9D8CD0A14575E6A0047F90A /* tile_projectED.png */,
+				F9B408031457546C001D2247 /* MSuite+Logo.png */,
+				F9B408041457546C001D2247 /* SampleAboutPage.png */,
+				F9B407FB14575032001D2247 /* bgE.png */,
 				F93D87181453C96F0037481D /* football.jpg */,
 				F93D870A1453C5D10037481D /* bg.png */,
 				F93D870B1453C5D10037481D /* new_bg_hand_big.png */,
@@ -141,6 +158,9 @@
 				F9380CFB144CABBA00FC7F17 /* AppDelegate.m */,
 				F9380CFD144CABBA00FC7F17 /* ViewController.h */,
 				F9380CFE144CABBA00FC7F17 /* ViewController.m */,
+				F9B407FE14575434001D2247 /* aboutViewController.h */,
+				F9B407FF14575434001D2247 /* aboutViewController.m */,
+				F9B4080014575434001D2247 /* aboutViewController.xib */,
 				F9380D00144CABBA00FC7F17 /* ViewController.xib */,
 				F9380CF2144CABBA00FC7F17 /* Supporting Files */,
 			);
@@ -240,6 +260,11 @@
 				F93D87161453C5D10037481D /* tile_project.png in Resources */,
 				F93D87171453C5D10037481D /* tiles_bottom.png in Resources */,
 				F93D87191453C96F0037481D /* football.jpg in Resources */,
+				F9B407FC14575032001D2247 /* bgE.png in Resources */,
+				F9B4080214575434001D2247 /* aboutViewController.xib in Resources */,
+				F9B408051457546C001D2247 /* MSuite+Logo.png in Resources */,
+				F9B408061457546C001D2247 /* SampleAboutPage.png in Resources */,
+				F9D8CD0B14575E6A0047F90A /* tile_projectED.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +286,7 @@
 				F93D86FA1453818A0037481D /* SBJsonWriter.m in Sources */,
 				F93D8701145385110037481D /* NamesViewController.m in Sources */,
 				F93D87081453BC030037481D /* TileDisplayView.m in Sources */,
+				F9B4080114575434001D2247 /* aboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
