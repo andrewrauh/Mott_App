@@ -16,12 +16,16 @@
     NSMutableArray *lastNames;
     TileDisplayView *tileDisplayView;
     NSMutableArray *picLoc;
+    NSMutableArray *levels;
+    NSMutableArray *rooms;
     NSString *finalUrl;
 }
 @property (nonatomic,retain) IBOutlet UITableView *tbView;
 @property (nonatomic, retain) NSMutableArray *firstNames;
 @property (nonatomic,retain)NSMutableArray *lastNames;
 @property (nonatomic, retain) NSMutableArray *picLoc;
+@property (nonatomic,retain)NSMutableArray *levels;
+@property (nonatomic,retain)NSMutableArray *rooms;
 @property (nonatomic,retain)TileDisplayView *tileDisplayView;
 
 -(IBAction)dismissModal:(id)sender;

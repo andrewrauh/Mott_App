@@ -13,7 +13,6 @@
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>IBProxyObject</string>
-			<string>IBUIBarButtonItem</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUINavigationBar</string>
@@ -47,7 +46,7 @@
 					<object class="IBUIImageView" id="527028104">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{-22, 226}, {354, 331}}</string>
+						<string key="NSFrame">{{25, 215}, {270, 273}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="322401090"/>
@@ -68,18 +67,12 @@
 						<reference key="NSNextKeyView" ref="275215597"/>
 						<string key="NSReuseIdentifierKey">_NS:244</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIBarStyle">1</int>
+						<int key="IBUIBarStyle">2</int>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="430230942">
 								<reference key="IBUINavigationBar" ref="152200740"/>
-								<string key="IBUITitle">Title</string>
-								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="866338012">
-									<string key="IBUITitle">Done</string>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<int key="IBUIStyle">1</int>
-									<reference key="IBUINavigationItem" ref="430230942"/>
-								</object>
+								<string key="IBUITitle">About</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</object>
@@ -87,7 +80,7 @@
 					<object class="IBUILabel" id="275215597">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{36, 61}, {248, 21}}</string>
+						<string key="NSFrame">{{36, 60}, {248, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="531297704"/>
@@ -121,7 +114,7 @@
 					<object class="IBUILabel" id="531297704">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{98, 103}, {125, 40}}</string>
+						<string key="NSFrame">{{98, 89}, {125, 40}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="131686066"/>
@@ -154,7 +147,7 @@
 					<object class="IBUILabel" id="131686066">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{96, 151}, {119, 29}}</string>
+						<string key="NSFrame">{{101, 123}, {119, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="527028104"/>
@@ -180,10 +173,9 @@
 					<object class="IBUITextView" id="322401090">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{40, 236}, {240, 128}}</string>
+						<string key="NSFrame">{{40, 162}, {240, 128}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:623</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -4624,14 +4616,6 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					</object>
 					<int key="connectionID">3</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">dismissA:</string>
-						<reference key="source" ref="866338012"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">9</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -4650,11 +4634,11 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="152200740"/>
-							<reference ref="527028104"/>
 							<reference ref="275215597"/>
 							<reference ref="531297704"/>
 							<reference ref="131686066"/>
 							<reference ref="322401090"/>
+							<reference ref="527028104"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -4688,14 +4672,8 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 						<reference key="object" ref="430230942"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="866338012"/>
 						</object>
 						<reference key="parent" ref="152200740"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">8</int>
-						<reference key="object" ref="866338012"/>
-						<reference key="parent" ref="430230942"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
@@ -4735,14 +4713,12 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
-					<string>8.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>aboutViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

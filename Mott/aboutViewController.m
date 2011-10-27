@@ -14,7 +14,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = NSLocalizedString(@"About", @"About");
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"About" image:[UIImage imageNamed:@"180-stickynote.png"] tag:2];
     }
     return self;
 }

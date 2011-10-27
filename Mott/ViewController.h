@@ -15,12 +15,11 @@
     IBOutlet UITextField *enterName;
     IBOutlet UIButton *enter;
     NSDictionary  *namesResults;
-    NSMutableArray *firstNames;
-    NSMutableArray *lastNames;
-    NSMutableArray *picLoc;
     NamesViewController *namesView;
+
     IBOutlet UINavigationBar *navBar;
     aboutViewController *aboutView;
+    IBOutlet UITextField *textField;
 
 }
 
@@ -31,7 +30,9 @@
 @property(nonatomic, retain) NamesViewController *namesView;
 @property(nonatomic, retain) UINavigationBar *navBar;
 @property(nonatomic, retain) aboutViewController *aboutView;
+@property(nonatomic, retain) UITextField *textField;
 
+- (IBAction)textFieldFinished:(id)sender;
 -(void) getDataWithUrlNamesArray:(NSArray*)namesArray;
 - (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString;
 

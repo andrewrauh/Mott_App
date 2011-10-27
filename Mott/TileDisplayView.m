@@ -9,7 +9,7 @@
 #import "TileDisplayView.h"
 
 @implementation TileDisplayView
-@synthesize firstName, lastName, firstNameLabel, lastNameLabel, picLoc, imageView;
+@synthesize firstName, lastName, fullName, firstNameLabel, lastNameLabel, picLoc, imageView, navBar1, level, room, secondLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,7 +35,8 @@
 {
     [super viewDidLoad];
     //UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bgE.png"]];
-    
+    self.navBar1.topItem.title = @"Test";
+
     //self.view.backgroundColor = background;
 
     
@@ -55,9 +56,17 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    firstNameLabel.text = firstName;
-    lastNameLabel.text = lastName;
+    
+    fullName = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
+
+    
+    NSString *secondLabelContent = [[level stringByAppendingString:@", "]stringByAppendingString:room];
+    firstNameLabel.text = fullName;
+    
     imageView.image = [self getCachedImage:picLoc];
+    firstNameLabel.textAlignment = UITextAlignmentCenter;
+    secondLabel.text = secondLabelContent;
+    secondLabel.textAlignment = UITextAlignmentCenter;
 
 }
 
@@ -69,7 +78,7 @@
 }
 -(IBAction)dismissModal:(id)sender{
     firstNameLabel.text = @" ";
-    lastNameLabel.text = @" ";
+    //lastNameLabel.text = @" ";
     [self dismissModalViewControllerAnimated:YES];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

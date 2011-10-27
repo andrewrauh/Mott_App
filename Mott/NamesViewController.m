@@ -11,7 +11,7 @@
 #import "TileDisplayView.h"
 @implementation NamesViewController
 @synthesize  tbView;
-@synthesize  firstNames, lastNames, tileDisplayView, picLoc;
+@synthesize  firstNames, lastNames, tileDisplayView, picLoc,levels,rooms;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,17 +44,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"FIRST NAMES: ");
-    for(int i =0;i<[firstNames count];i++)
-    {
-        NSLog(@"%@ ",[firstNames objectAtIndex:i]);
-    }
-    
-    NSLog(@"LAST NAMES: ");
-    for(int i =0;i<[lastNames count];i++)
-    {
-        NSLog(@"%@ ",[lastNames objectAtIndex:i]);
-    }
+
     [tbView reloadData];
 }
 
@@ -75,7 +65,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Set up the cell...
@@ -89,14 +79,17 @@
     NSString *lastName = [lastNames objectAtIndex:indexPath.row];
      NSLog(@"Last Name of cell: %@",lastName);
     NSString *picturePath = [picLoc objectAtIndex:indexPath.row];
-    
+    NSString *level = [levels objectAtIndex:indexPath.row];
+    NSString *room = [rooms objectAtIndex:indexPath.row];
     UIImage *cashedImage = [self getCachedImage:picturePath];
     
     [[cell imageView] setImage:cashedImage];
 
+
     
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ %@",firstName, lastName]];
-    
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@",level,room]];
+    NSLog(level, room);
     
     return cell;
 }
@@ -111,6 +104,8 @@
     [self.tileDisplayView setFirstName:[firstNames objectAtIndex:indexPath.row]];
     [self.tileDisplayView setLastName:[lastNames objectAtIndex:indexPath.row]];
     [self.tileDisplayView setPicLoc:[picLoc objectAtIndex:indexPath.row]];
+    [self.tileDisplayView setLevel:[levels objectAtIndex:indexPath.row]];
+    [self.tileDisplayView setRoom:[rooms objectAtIndex:indexPath.row]];
        
     [self presentModalViewController:self.tileDisplayView animated:YES];
     
