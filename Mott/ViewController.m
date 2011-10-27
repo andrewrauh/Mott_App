@@ -1,3 +1,4 @@
+
 //
 //  ViewController.m
 //  Mott
@@ -10,8 +11,19 @@
 #import "JSON.h"
 #import "NamesViewController.h"
 @implementation ViewController 
-@synthesize enterName, namesView;
+@synthesize enterName, namesView, navBar, aboutView, textField;
 
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = NSLocalizedString(@"Search", @"Search");
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Search" image:[UIImage imageNamed:@"06-magnify.png"] tag:0];
+        //self.tabBarItem.title = @"Search";
+    }
+    return self;
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -24,7 +36,21 @@
 
 - (void)viewDidLoad
 {
+    [[self navigationController] navigationBar];
+    UIImage *backgroundImage = [UIImage imageNamed:@"tile_projectED.png"];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    
+    /*UINavigationBar *navBar = [[self navigationController] navigationBar];
+    UIImage *backgroundImage = [UIImage imageNamed:@"tile_project.png"];
+    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];*/
+//    [self.textField setDelegate:self];
+//    [self.textField setReturnKeyType:UIReturnKeyDone];
+//    [self.textField addTarget:self
+//                       action:@selector(textFieldFinished:)
+//             forControlEvents:UIControlEventEditingDidEndOnExit];
+     
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -39,9 +65,15 @@
 //    NSString *urlString = [NSString stringWithFormat:@"http://mott-app.comule.com/selectO.php?first=%@&last=%@", firstName, lastName];
 //    NSLog(urlString);
     [self getDataWithUrlNamesArray: names];
+    [self.enterName resignFirstResponder];
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
-    
+
+}
 
 - (void)viewDidUnload
 {
@@ -61,9 +93,11 @@
     //NSURLRequest *request = 
     //NSString *firstName = [namesArray objectAtIndex:0];
     //NSLog(names);
-    firstNames = [[NSMutableArray alloc]init];
-    lastNames = [[NSMutableArray alloc]init];
-    picLoc = [[NSMutableArray alloc]init];
+    NSMutableArray*  firstNames = [[NSMutableArray alloc]init];
+    NSMutableArray* lastNames = [[NSMutableArray alloc]init];
+    NSMutableArray* picLoc = [[NSMutableArray alloc]init];
+    NSMutableArray* levels = [[NSMutableArray alloc]init];
+    NSMutableArray* rooms = [[NSMutableArray alloc]init];
     NSString *requestString;
     if([namesArray count]==1){
         NSLog(@"OBJECT AT INDEX 1 WAS NIL");
@@ -80,7 +114,7 @@
     NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
     //NSLog(@"Response string is %@",responseString);
     namesResults = [responseString JSONValue];
-    //NSLog(@"Dictionary is: %@",namesResults);
+    NSLog(@"Dictionary is: %@",namesResults);
     
     for(NSDictionary *names in namesResults)
     {
@@ -88,6 +122,8 @@
         [firstNames addObject:[names objectForKey:@"FIRST"]];
         [lastNames addObject:[names objectForKey:@"LAST"]];
         [picLoc addObject:[names objectForKey:@"IMAGE"]];
+        [levels addObject:[names objectForKey:@"LEVEL"]];
+        [rooms addObject:[names objectForKey:@"ROOM"]];
     }
     NSLog(@"CHECKPOINT...");
     
@@ -127,17 +163,36 @@
     [namesView setFirstNames:firstNames];
     [namesView setLastNames:lastNames];
     [namesView setPicLoc:picLoc];
+    [namesView setLevels:levels];
+    [namesView setRooms:rooms];
     
     firstNames = nil;
     [firstNames release];
     lastNames = nil;
     [lastNames release];
+    picLoc = nil;
+    [picLoc release];
+    levels = nil;
+    [levels release];
+    rooms = nil;
+    [rooms release];
     
     [self presentModalViewController:self.namesView animated:YES];
-     
+    [self.enterName resignFirstResponder];
 
 }
-
+-(IBAction)openAboutUs:(id)sender {
+    
+    if(self.aboutView==nil)
+    {
+        aboutViewController *abv = [[aboutViewController alloc]initWithNibName:@"aboutViewController" bundle:[NSBundle mainBundle]];
+        self.aboutView = abv;
+        [self presentModalViewController:abv animated:YES];
+        [abv release];
+    }
+    
+    
+}
 - (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString
 {
     //NSURL *ImageURL = [NSURL URLWithString: ImageURLString];
@@ -193,6 +248,7 @@
 //        }
     
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
