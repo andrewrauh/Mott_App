@@ -11,7 +11,7 @@
 #import "JSON.h"
 #import "NamesViewController.h"
 @implementation ViewController 
-@synthesize enterName, namesView, navBar, aboutView, textField;
+@synthesize enterName, namesView, navBar, aboutView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,9 +55,14 @@
 }
 
 -(IBAction) parseQuery {
-    //enterName.text = 
-    NSArray *names = [enterName.text componentsSeparatedByString:@" "];
-   
+    NSString *trimmedString = [enterName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSLog(@"Trimmed string: %@, count is %i",trimmedString, [trimmedString length]);
+
+    NSArray *names = [trimmedString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    for(int i =0;i<[names count];i++)
+    {
+        NSLog(@"Object at index %i is %@",i,[names objectAtIndex:i]);
+    }
      
     //NSLog(names);
    // NSLog(@"first word: %@, second word: %@",firstName, lastName);
@@ -65,7 +70,6 @@
 //    NSString *urlString = [NSString stringWithFormat:@"http://mott-app.comule.com/selectO.php?first=%@&last=%@", firstName, lastName];
 //    NSLog(urlString);
     [self getDataWithUrlNamesArray: names];
-    [self.enterName resignFirstResponder];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -99,8 +103,9 @@
     NSMutableArray* levels = [[NSMutableArray alloc]init];
     NSMutableArray* rooms = [[NSMutableArray alloc]init];
     NSString *requestString;
+    
     if([namesArray count]==1){
-        NSLog(@"OBJECT AT INDEX 1 WAS NIL");
+        NSLog(@"NAMES COUNT WAS ONLY 1");
         requestString = [NSString stringWithFormat:@"firstName=%@",[namesArray objectAtIndex:0]];
     }else{
         requestString = [NSString stringWithFormat:@"firstName=%@&lastName=%@",[namesArray objectAtIndex:0],[namesArray objectAtIndex:1]];  
@@ -114,7 +119,6 @@
     NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
     //NSLog(@"Response string is %@",responseString);
     namesResults = [responseString JSONValue];
-    NSLog(@"Dictionary is: %@",namesResults);
     
     for(NSDictionary *names in namesResults)
     {
@@ -177,9 +181,11 @@
     rooms = nil;
     [rooms release];
     
-    [self presentModalViewController:self.namesView animated:YES];
+    //[self presentModalViewController:self.namesView animated:YES];
     [self.enterName resignFirstResponder];
-
+    [self.enterName setText:@""];
+    [self presentModalViewController:self.namesView animated:YES];
+    
 }
 -(IBAction)openAboutUs:(id)sender {
     
@@ -249,6 +255,21 @@
     
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textFieldd
+{
+    NSLog(@"Text field did end ediitng..");
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textF
+{
+    NSArray *names = [enterName.text componentsSeparatedByString:@" "];
+    NSMutableArray *namesMutable = [NSMutableArray arrayWithArray:names];
+    NSLog(@"Names array: %@",names);
+    [self getDataWithUrlNamesArray: namesMutable];
+   
+    return NO;
+}
 
 - (void)viewWillDisappear:(BOOL)animated
 {

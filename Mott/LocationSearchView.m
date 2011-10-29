@@ -1,15 +1,15 @@
 //
-//  LocationSearch.m
+//  LocationSearchView.m
 //  Mott
 //
-//  Created by Andrew Rauh on 10/25/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by Chris Wendel on 10/28/11.
+//  Copyright (c) 2011 University of Michigan. All rights reserved.
 //
 
-#import "LocationSearch.h"
-
-@implementation LocationSearch
-@synthesize levelNamesTableViewController;
+#import "LocationSearchView.h"
+#import "JSON.h"
+@implementation LocationSearchView
+@synthesize tbView, namesView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,84 +31,50 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     return 1;
 }
-
-// Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 12;
-}
-
-// Customize the <span id="IL_AD9" class="IL_AD">appearance</span> of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 10;
     
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
+    }    
     
-    // Set up the cell...
-    /*
-     NSDictionary *nameResult = [nameResults objectAtIndex:[indexPath row]];
-     [cell.textLabel setText:[NSString stringWithFormat:[nameResult objectForKey:@"FIRST"]]];
-     */
-    
-    
-    
-    //[cell.textLabel setText:[NSString stringWithFormat:@"Level %i",indexPath.row+1]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"Level %i",indexPath.row+2]];
     
     return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self getItemsForLevel:indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-                
+
 }
- 
 
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
+-(void) getItemsForLevel:(NSInteger) intRow
 {
-    [super viewDidLoad];
-    tbView.delegate = self;
-    tbView.dataSource = self;
-    // Do any additional setup after loading the view from its nib.
-}
-
-
--(void) getItemsForLevel:(NSInteger)rowInt {
-    
-    if(self.levelNamesTableViewController==nil)
-    {
-        LevelNamesTableViewController *abv = [[LevelNamesTableViewController alloc]initWithNibName:@"LevelNamesTableViewController" bundle:[NSBundle mainBundle]];
-        self.levelNamesTableViewController = abv;
-        [abv release];
-        
-    }
-    [self presentModalViewController:self.levelNamesTableViewController  animated:YES];
-    
     
     NSMutableArray*  firstNames = [[NSMutableArray alloc]init];
     NSMutableArray* lastNames = [[NSMutableArray alloc]init];
     NSMutableArray* picLoc = [[NSMutableArray alloc]init];
     NSMutableArray* levels = [[NSMutableArray alloc]init];
     NSMutableArray* rooms = [[NSMutableArray alloc]init];
-
+    
     
     
     //http://macmini2.eecs.umich.edu/Mott_Tiles/select_location.php?location=Level%208,%20Check-In
     NSString *locationUrl = @"http://macmini2.eecs.umich.edu/Mott_Tiles/select_location.php?location=";
-   // Level%208,%20Check-In";
+    // Level%208,%20Check-In";
     
-    NSString *locationRequestString = [NSString stringWithFormat:@"Level %i, Check-In", rowInt+1];
+    NSString *locationRequestString = [NSString stringWithFormat:@"Level %i, Check-In", intRow+2];
     
     NSString *fullLocationUrl = [locationUrl stringByAppendingString:locationRequestString];
     NSString* escapedUrlString =
@@ -125,25 +91,16 @@
     NSURLResponse *response;
     NSData *namesResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
-    namesResultsLoc = [responseString JSONValue];
-
+    NSDictionary *namesResultsLoc = [responseString JSONValue];
+    
     for(NSDictionary *names in namesResultsLoc)
     {
-        //NSLog(@"First name is %@",[names objectForKey:@"FIRST"]);
         [firstNames addObject:[names objectForKey:@"FIRST"]];
         [lastNames addObject:[names objectForKey:@"LAST"]];
         [picLoc addObject:[names objectForKey:@"IMAGE"]];
         [levels addObject:[names objectForKey:@"LEVEL"]];
         [rooms addObject:[names objectForKey:@"ROOM"]];
     }
-    if(self.levelNamesTableViewController==nil)
-    {
-        LevelNamesTableViewController *abv = [[LevelNamesTableViewController alloc]initWithNibName:@"LevelNamesTableViewController" bundle:[NSBundle mainBundle]];
-        self.levelNamesTableViewController = abv;
-        [abv release];
-    
-    }
-    [self presentModalViewController:self.levelNamesTableViewController  animated:YES];
     
     for(int i = 0;i<[picLoc count];i++)
     {
@@ -159,9 +116,20 @@
         
         [self cacheImage:namesResponse withString:[picLoc objectAtIndex:i]];
     }
-
     
+    if(self.namesView==nil)
+    {
+        NamesViewController *nvc = [[NamesViewController alloc]initWithNibName:@"NamesViewController" bundle:[NSBundle mainBundle]];
+        self.namesView = nvc;
+        [nvc release];
+        
+    }
 
+    [namesView setFirstNames:firstNames];
+    [namesView setLastNames:lastNames];
+    [namesView setPicLoc:picLoc];
+    [namesView setLevels:levels];
+    [namesView setRooms:rooms];
     
     [firstNames release];
     [lastNames release];
@@ -169,11 +137,8 @@
     [levels release];
     [rooms release];
 
-
+    [self presentModalViewController:self.namesView  animated:YES];
 }
-
-
-/*
 
 - (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString
 {
@@ -183,7 +148,7 @@
     imageData = UIImageJPEGRepresentation(image, 100);
     NSString *uniquePath = ImageURLString;
     NSLog(@"Checking for cashed image at url %@",uniquePath);
-        
+    
     //NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
     
     NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
@@ -194,11 +159,18 @@
     
     NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]]; //add our image to the path
     
-    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the 
-    
+    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil];
 }
- */
 
+#pragma mark - View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    tbView.dataSource = self;
+    tbView.delegate = self;
+    // Do any additional setup after loading the view from its nib.
+}
 
 - (void)viewDidUnload
 {

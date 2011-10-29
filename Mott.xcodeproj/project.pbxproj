@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF8673EC145BA16100A371B1 /* LocationSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8673EA145BA16100A371B1 /* LocationSearchView.m */; };
+		AF8673ED145BA16100A371B1 /* LocationSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF8673EB145BA16100A371B1 /* LocationSearchView.xib */; };
 		F9380CEE144CABBA00FC7F17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CED144CABBA00FC7F17 /* UIKit.framework */; };
 		F9380CF0144CABBA00FC7F17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CEF144CABBA00FC7F17 /* Foundation.framework */; };
 		F9380CF6144CABBA00FC7F17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9380CF4144CABBA00FC7F17 /* InfoPlist.strings */; };
@@ -49,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF8673E9145BA16100A371B1 /* LocationSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearchView.h; sourceTree = "<group>"; };
+		AF8673EA145BA16100A371B1 /* LocationSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearchView.m; sourceTree = "<group>"; };
+		AF8673EB145BA16100A371B1 /* LocationSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSearchView.xib; sourceTree = "<group>"; };
 		F9380CE9144CABBA00FC7F17 /* Mott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9380CED144CABBA00FC7F17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F9380CEF144CABBA00FC7F17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -183,6 +188,9 @@
 				F97D696814578ECC00AC6AD8 /* LocationSearch.h */,
 				F97D696914578ECC00AC6AD8 /* LocationSearch.m */,
 				F97D696A14578ECC00AC6AD8 /* LocationSearch.xib */,
+				AF8673E9145BA16100A371B1 /* LocationSearchView.h */,
+				AF8673EA145BA16100A371B1 /* LocationSearchView.m */,
+				AF8673EB145BA16100A371B1 /* LocationSearchView.xib */,
 				F9B407FE14575434001D2247 /* aboutViewController.h */,
 				F9B407FF14575434001D2247 /* aboutViewController.m */,
 				F9B4080014575434001D2247 /* aboutViewController.xib */,
@@ -295,6 +303,7 @@
 				F9D9EDDA1457A6FD00186964 /* 07-map-marker.png in Resources */,
 				F9D9EDDC1457A71700186964 /* 180-stickynote.png in Resources */,
 				F9D9EDE11457C44800186964 /* LevelNamesTableViewController.xib in Resources */,
+				AF8673ED145BA16100A371B1 /* LocationSearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +328,7 @@
 				F9B4080114575434001D2247 /* aboutViewController.m in Sources */,
 				F97D696B14578ECC00AC6AD8 /* LocationSearch.m in Sources */,
 				F9D9EDE01457C44800186964 /* LevelNamesTableViewController.m in Sources */,
+				AF8673EC145BA16100A371B1 /* LocationSearchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

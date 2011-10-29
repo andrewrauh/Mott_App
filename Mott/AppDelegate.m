@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
-#import "LocationSearch.h"
+#import "LocationSearchView.h"
 #import "aboutViewController.h"
 @implementation AppDelegate
 
@@ -28,7 +28,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     UIViewController *viewController1 = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    UIViewController *viewController2 = [[[LocationSearch alloc]initWithNibName:@"LocationSearch" bundle:nil]autorelease];
+    UIViewController *viewController2 = [[[LocationSearchView alloc]initWithNibName:@"LocationSearchView" bundle:nil]autorelease];
     UIViewController *viewController3 = [[[aboutViewController alloc] initWithNibName:@"aboutViewController" bundle:nil] autorelease];
     //UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];

@@ -9,16 +9,8 @@
 #import "LevelNamesTableViewController.h"
 
 @implementation LevelNamesTableViewController
-@synthesize levelsL, firstNamesL, lastNamesL, picLocL, tView, roomsL,tileDisplayView;
+//@synthesize levelsL, firstNamesL, lastNamesL, picLocL, tView, roomsL,tileDisplayView;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,11 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tView.dataSource = self;
-    self.tView.delegate = self;
-    self.tView.rowHeight = 90;    
+    //self.tView.dataSource = self;
+    //self.tView.delegate = self;
+    //self.tView.rowHeight = 90;    
 
-    NSLog(@"%@", firstNamesL);
+    //NSLog(@"%@", firstNamesL);
   
 }
 
@@ -56,7 +48,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [tView reloadData];
+    //[tView reloadData];
 
 }
 
@@ -77,6 +69,11 @@
 }
 
 #pragma mark - Table view data source
+-(IBAction)dismissThis:(id)sender{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+/*
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -153,16 +150,15 @@
 //        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 //    }
 //
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -174,9 +170,9 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
