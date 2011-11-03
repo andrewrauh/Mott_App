@@ -9,7 +9,7 @@
 #import "TileDisplayView.h"
 
 @implementation TileDisplayView
-@synthesize firstName, lastName, fullName, firstNameLabel, lastNameLabel, picLoc, imageView, navBar1, level, room, secondLabel;
+@synthesize firstName, lastName, fullName, firstNameLabel, lastNameLabel, fullSizeTile, imageView, navBar1, level, room, secondLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,22 +35,11 @@
 {
     [super viewDidLoad];
     //UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bgE.png"]];
-    self.navBar1.topItem.title = @"Test";
 
     //self.view.backgroundColor = background;
 
     
     // Do any additional setup after loading the view from its nib.
-}
-- (UIImage *) getCachedImage: (NSString *) ImageURLString 
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]];
-    
-    return [UIImage imageWithContentsOfFile:fullPath];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -63,7 +52,7 @@
     NSString *secondLabelContent = [[level stringByAppendingString:@", "]stringByAppendingString:room];
     firstNameLabel.text = fullName;
     
-    imageView.image = [self getCachedImage:picLoc];
+    imageView.image = fullSizeTile;
     firstNameLabel.textAlignment = UITextAlignmentCenter;
     secondLabel.text = secondLabelContent;
     secondLabel.textAlignment = UITextAlignmentCenter;

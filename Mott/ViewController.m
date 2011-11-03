@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "JSON.h"
 #import "NamesViewController.h"
+#import "AppDelegate.h"
 @implementation ViewController 
 @synthesize enterName, namesView, navBar, aboutView;
 
@@ -102,34 +103,84 @@
     NSMutableArray* picLoc = [[NSMutableArray alloc]init];
     NSMutableArray* levels = [[NSMutableArray alloc]init];
     NSMutableArray* rooms = [[NSMutableArray alloc]init];
-    NSString *requestString;
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+
     
-    if([namesArray count]==1){
-        NSLog(@"NAMES COUNT WAS ONLY 1");
-        requestString = [NSString stringWithFormat:@"firstName=%@",[namesArray objectAtIndex:0]];
-    }else{
-        requestString = [NSString stringWithFormat:@"firstName=%@&lastName=%@",[namesArray objectAtIndex:0],[namesArray objectAtIndex:1]];  
-    }
-    NSData *requestData = [requestString dataUsingEncoding:NSUTF8StringEncoding];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://macmini2.eecs.umich.edu/Mott_Tiles/select.php"]];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody: requestData];
-    NSURLResponse *response;
-    NSData *namesResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
-    //NSLog(@"Response string is %@",responseString);
-    namesResults = [responseString JSONValue];
-    
-    for(NSDictionary *names in namesResults)
+    if([namesArray count] == 2)
     {
-        //NSLog(@"First name is %@",[names objectForKey:@"FIRST"]);
-        [firstNames addObject:[names objectForKey:@"FIRST"]];
-        [lastNames addObject:[names objectForKey:@"LAST"]];
-        [picLoc addObject:[names objectForKey:@"IMAGE"]];
-        [levels addObject:[names objectForKey:@"LEVEL"]];
-        [rooms addObject:[names objectForKey:@"ROOM"]];
+        NSLog(@"names array count was %@ and %@",[namesArray objectAtIndex:0],[namesArray objectAtIndex:1]);
+        for(int i =0;i<[appDelegate.firstNames count];i++)
+        {
+            NSString *stringToSearch = [appDelegate.firstNames objectAtIndex:i];
+            if(([[stringToSearch lowercaseString]  rangeOfString:[[namesArray objectAtIndex:0]lowercaseString]].location == NSNotFound) && ([[stringToSearch lowercaseString] rangeOfString:[[namesArray objectAtIndex:1]lowercaseString]].location == NSNotFound))
+            {
+                NSLog(@"Both words from text field were not found in first names array");
+                stringToSearch = [appDelegate.lastNames objectAtIndex:i];
+                if(([[stringToSearch lowercaseString] rangeOfString:[[namesArray objectAtIndex:0]lowercaseString]].location == NSNotFound) && ([[stringToSearch lowercaseString] rangeOfString:[[namesArray objectAtIndex:1]lowercaseString]].location == NSNotFound))
+                {
+                    NSLog(@"Both words from text field were not found in last names array");
+                }
+                else
+                {
+                    NSLog(@"Adding to arrays");
+                    //Add to arrays
+                    [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
+                    [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
+                    [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
+                    [levels addObject:[appDelegate.levels objectAtIndex:i]];
+                    [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+                }
+            }
+            else
+            {
+                NSLog(@"Adding to arrays");
+                //Add to arrays
+                [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
+                [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
+                [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
+                [levels addObject:[appDelegate.levels objectAtIndex:i]];
+                [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+            }
+                      
+        }
+                      
     }
-    NSLog(@"CHECKPOINT...");
+    else
+    {
+        NSLog(@"names array count was 1");
+        for(int i =0;i<[appDelegate.firstNames count];i++)
+        {
+            NSString *stringToSearch = [appDelegate.firstNames objectAtIndex:i];
+            if(([[stringToSearch lowercaseString] rangeOfString:[[namesArray objectAtIndex:0]lowercaseString]].location == NSNotFound))
+            {
+                NSLog(@"Both words from text field were not found in first names array");
+                stringToSearch = [appDelegate.lastNames objectAtIndex:i];
+                if(([[stringToSearch lowercaseString] rangeOfString:[[namesArray objectAtIndex:0]lowercaseString]].location == NSNotFound))
+                {
+                    NSLog(@"Both words from text field were not found in last names array");
+                }
+                else
+                {
+                    //Add to arrays
+                    [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
+                    [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
+                    [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
+                    [levels addObject:[appDelegate.levels objectAtIndex:i]];
+                    [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+                }
+            }
+            else
+            {
+                //Add to arrays
+                [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
+                [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
+                [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
+                [levels addObject:[appDelegate.levels objectAtIndex:i]];
+                [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+            }
+            
+        }
+    }
     
     //NSLog(@"Count of first names is %@",[firstNames count]);
     //NSLog(@"Count of last names is %@",[lastNames count]);
@@ -139,23 +190,6 @@
     }
      */
     //Present Modal View controller
-    NSLog(@"PICK LOCK COUNT %i",[picLoc count]);
-    int count = [picLoc count];
-    
-    for(int i = 0;i<count;i++)
-    {
-        NSString *baseUrl;
-        baseUrl = @"http://macmini2.eecs.umich.edu/Mott_Tiles/images/";
-        NSString *encodedString =  [[picLoc objectAtIndex:i] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *fullUrl = [baseUrl stringByAppendingString:encodedString];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
-        [request setHTTPMethod:@"GET"];
-        NSURLResponse *response;
-        NSData *namesResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        //NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
-        
-        [self cacheImage:namesResponse withString:[picLoc objectAtIndex:i]];
-    }
     
     
     if(self.namesView==nil)
@@ -199,61 +233,6 @@
     
     
 }
-- (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString
-{
-    //NSURL *ImageURL = [NSURL URLWithString: ImageURLString];
-    UIImage *image = [UIImage imageWithData:imageData];
-    
-    imageData = UIImageJPEGRepresentation(image, 100);
-    NSString *uniquePath = ImageURLString;
-    NSLog(@"Checking for cashed image at url %@",uniquePath);
-    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:uniquePath]]];
-
-    //NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
-    
-    NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our exact path to the documents directory
-    
-    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]]; //add our image to the path
-    
-    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
-    
-    // Check for file existence
-//    NSArray *dirPath;
-//    NSString *docsDir;
-//    dirPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
-//                                                   NSUserDomainMask, YES);
-//    docsDir = [dirPath objectAtIndex:0];
-    
-    
-    
-//    [[NSFileManager defaultManager] fileExistsAtPath: docsDir];
-//    
-//        NSLog(@"Making an image....");
-//        // The file doesn't exist, we should get a copy of it
-//        
-//        // Fetch image
-//        UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:uniquePath]]];
-//        NSLog(@"image getting cashed is %@",image);
-//        
-//        // Is it PNG or JPG/JPEG?
-//        // Running the image representation function writes the data from the image to a file
-//        if([ImageURLString rangeOfString: @".png" options: NSCaseInsensitiveSearch].location != NSNotFound)
-//        {
-//            [UIImagePNGRepresentation(image) writeToFile: uniquePath atomically: YES];
-//        }
-//        else if(
-//                [ImageURLString rangeOfString: @".jpg" options: NSCaseInsensitiveSearch].location != NSNotFound || 
-//                [ImageURLString rangeOfString: @".jpeg" options: NSCaseInsensitiveSearch].location != NSNotFound
-//                )
-//        {
-//            [UIImageJPEGRepresentation(image, 100) writeToFile: uniquePath atomically: YES];
-//        }
-    
-}
 
 - (void)textFieldDidEndEditing:(UITextField *)textFieldd
 {
@@ -263,10 +242,21 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textF
 {
-    NSArray *names = [enterName.text componentsSeparatedByString:@" "];
-    NSMutableArray *namesMutable = [NSMutableArray arrayWithArray:names];
-    NSLog(@"Names array: %@",names);
-    [self getDataWithUrlNamesArray: namesMutable];
+    NSString *trimmedString = [enterName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSLog(@"Trimmed string: %@, count is %i",trimmedString, [trimmedString length]);
+    
+    NSArray *names = [trimmedString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    for(int i =0;i<[names count];i++)
+    {
+        NSLog(@"Object at index %i is %@",i,[names objectAtIndex:i]);
+    }
+    
+    //NSLog(names);
+    // NSLog(@"first word: %@, second word: %@",firstName, lastName);
+    
+    //    NSString *urlString = [NSString stringWithFormat:@"http://mott-app.comule.com/selectO.php?first=%@&last=%@", firstName, lastName];
+    //    NSLog(urlString);
+    [self getDataWithUrlNamesArray: names];
    
     return NO;
 }

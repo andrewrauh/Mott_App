@@ -29,6 +29,5 @@
 @property (nonatomic,retain)TileDisplayView *tileDisplayView;
 
 -(IBAction)dismissModal:(id)sender;
-- (UIImage *) getCachedImage: (NSString *) ImageURLString;
 
 @end

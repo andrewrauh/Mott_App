@@ -17,6 +17,5 @@
 @property(nonatomic,retain)NamesViewController *namesView;
 
 -(void) getItemsForLevel:(NSInteger) intRow;
-- (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString;
 
 @end

@@ -12,7 +12,7 @@
 @interface TileDisplayView : UIViewController{
     NSString *firstName;
     NSString *lastName;
-    NSString *picLoc;
+    UIImage *fullSizeTile;
     NSString *level;
     NSString *room;
     NSString *fullName;
@@ -24,7 +24,7 @@
 }
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
-@property (nonatomic, retain) NSString *picLoc;
+@property (nonatomic, retain) UIImage *fullSizeTile;
 @property (nonatomic, retain) NSString *level;
 @property (nonatomic, retain) NSString *room;
 @property (nonatomic, retain) NSString *fullName;
@@ -32,7 +32,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *secondLabel;
 @property (nonatomic, retain) IBOutlet UILabel *lastNameLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
-- (UIImage *) getCachedImage: (NSString *) ImageURLString;
 @property(nonatomic, retain) IBOutlet UINavigationBar *navBar1;
 
 

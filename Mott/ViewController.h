@@ -30,8 +30,6 @@
 @property(nonatomic, retain) UINavigationBar *navBar;
 @property(nonatomic, retain) aboutViewController *aboutView;
 
-- (IBAction)textFieldFinished:(id)sender;
 -(void) getDataWithUrlNamesArray:(NSArray*)namesArray;
-- (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString;
 
 @end

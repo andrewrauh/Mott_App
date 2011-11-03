@@ -9,6 +9,7 @@
 #import "NamesViewController.h"
 #import "ViewController.h"
 #import "TileDisplayView.h"
+#import "AppDelegate.h"
 @implementation NamesViewController
 @synthesize  tbView;
 @synthesize  firstNames, lastNames, tileDisplayView, picLoc,levels,rooms;
@@ -73,6 +74,7 @@
     NSDictionary *nameResult = [nameResults objectAtIndex:[indexPath row]];
     [cell.textLabel setText:[NSString stringWithFormat:[nameResult objectForKey:@"FIRST"]]];
      */
+
     
     NSString *firstName = [firstNames objectAtIndex:indexPath.row];
     NSLog(@"First Name of cell: %@",firstName);
@@ -81,9 +83,9 @@
     NSString *picturePath = [picLoc objectAtIndex:indexPath.row];
     NSString *level = [levels objectAtIndex:indexPath.row];
     NSString *room = [rooms objectAtIndex:indexPath.row];
-    UIImage *cashedImage = [self getCachedImage:picturePath];
+    UIImage *image = [UIImage imageNamed:picturePath];
     
-    [[cell imageView] setImage:cashedImage];
+    [[cell imageView] setImage:image];
 
 
     
@@ -101,11 +103,26 @@
         self.tileDisplayView = tvc;
         [tvc release];
     }
+    
+    //Get image data from server
+    NSString *baseUrl;
+    baseUrl = @"http://macmini2.eecs.umich.edu/Mott_Tiles/images/";
+    NSString *encodedString =  [[picLoc objectAtIndex:indexPath.row] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *fullUrl = [baseUrl stringByAppendingString:encodedString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
+    [request setHTTPMethod:@"GET"];
+    NSURLResponse *response;
+    NSData *namesResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    //NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
+    
+    UIImage *image = [UIImage imageWithData:namesResponse];
+    
     [self.tileDisplayView setFirstName:[firstNames objectAtIndex:indexPath.row]];
     [self.tileDisplayView setLastName:[lastNames objectAtIndex:indexPath.row]];
-    [self.tileDisplayView setPicLoc:[picLoc objectAtIndex:indexPath.row]];
+    [self.tileDisplayView setFullSizeTile:image];
     [self.tileDisplayView setLevel:[levels objectAtIndex:indexPath.row]];
     [self.tileDisplayView setRoom:[rooms objectAtIndex:indexPath.row]];
+    
        
     [self presentModalViewController:self.tileDisplayView animated:YES];
     
@@ -115,18 +132,6 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-
-
-- (UIImage *) getCachedImage: (NSString *) ImageURLString 
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]];
-    
-    return [UIImage imageWithContentsOfFile:fullPath];
-}
 
 - (void)viewDidUnload
 {

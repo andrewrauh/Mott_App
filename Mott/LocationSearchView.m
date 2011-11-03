@@ -8,6 +8,7 @@
 
 #import "LocationSearchView.h"
 #import "JSON.h"
+#import "AppDelegate.h"
 @implementation LocationSearchView
 @synthesize tbView, namesView;
 
@@ -36,7 +37,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return 11;
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,55 +68,30 @@
     NSMutableArray* picLoc = [[NSMutableArray alloc]init];
     NSMutableArray* levels = [[NSMutableArray alloc]init];
     NSMutableArray* rooms = [[NSMutableArray alloc]init];
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     
+    NSString *levelString = [NSString stringWithFormat:@"Level %i",intRow+2];
     
-    
-    //http://macmini2.eecs.umich.edu/Mott_Tiles/select_location.php?location=Level%208,%20Check-In
-    NSString *locationUrl = @"http://macmini2.eecs.umich.edu/Mott_Tiles/select_location.php?location=";
-    // Level%208,%20Check-In";
-    
-    NSString *locationRequestString = [NSString stringWithFormat:@"Level %i, Check-In", intRow+2];
-    
-    NSString *fullLocationUrl = [locationUrl stringByAppendingString:locationRequestString];
-    NSString* escapedUrlString =
-    [fullLocationUrl stringByAddingPercentEscapesUsingEncoding:
-     NSASCIIStringEncoding];
-    NSLog(@"Escaped URL String: %@",escapedUrlString);
-    
-    NSData *requestData = [escapedUrlString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:escapedUrlString]];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody: requestData];
-    NSURLResponse *response;
-    NSData *namesResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
-    NSDictionary *namesResultsLoc = [responseString JSONValue];
-    
-    for(NSDictionary *names in namesResultsLoc)
+    for(int i =0;i<[appDelegate.levels count];i++)
     {
-        [firstNames addObject:[names objectForKey:@"FIRST"]];
-        [lastNames addObject:[names objectForKey:@"LAST"]];
-        [picLoc addObject:[names objectForKey:@"IMAGE"]];
-        [levels addObject:[names objectForKey:@"LEVEL"]];
-        [rooms addObject:[names objectForKey:@"ROOM"]];
+        NSString *stringToSearch = [appDelegate.levels objectAtIndex:i];
+        if([[stringToSearch lowercaseString] rangeOfString:[levelString lowercaseString]].location==NSNotFound)
+        {
+            NSLog(@"Did not find current level in levels object at index %i",i);
+        }
+        else
+        {
+            NSLog(@"Adding to arrays");
+            //Add to arrays
+            [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
+            [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
+            [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
+            [levels addObject:[appDelegate.levels objectAtIndex:i]];
+            [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+        }
     }
     
-    for(int i = 0;i<[picLoc count];i++)
-    {
-        NSString *baseUrl;
-        baseUrl = @"http://macmini2.eecs.umich.edu/Mott_Tiles/images/";
-        NSString *encodedString =  [[picLoc objectAtIndex:i] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSString *fullUrl = [baseUrl stringByAppendingString:encodedString];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:fullUrl]];
-        [request setHTTPMethod:@"GET"];
-        NSURLResponse *response;
-        NSData *namesResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-        //NSString *responseString = [[NSString alloc]initWithData:namesResponse encoding:NSUTF8StringEncoding];
-        
-        [self cacheImage:namesResponse withString:[picLoc objectAtIndex:i]];
-    }
+    
     
     if(self.namesView==nil)
     {
@@ -140,27 +116,6 @@
     [self presentModalViewController:self.namesView  animated:YES];
 }
 
-- (void) cacheImage:(NSData*)imageData withString:(NSString *) ImageURLString
-{
-    //NSURL *ImageURL = [NSURL URLWithString: ImageURLString];
-    UIImage *image = [UIImage imageWithData:imageData];
-    
-    imageData = UIImageJPEGRepresentation(image, 100);
-    NSString *uniquePath = ImageURLString;
-    NSLog(@"Checking for cashed image at url %@",uniquePath);
-    
-    //NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
-    
-    NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our exact path to the documents directory
-    
-    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", ImageURLString]]; //add our image to the path
-    
-    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil];
-}
 
 #pragma mark - View lifecycle
 
