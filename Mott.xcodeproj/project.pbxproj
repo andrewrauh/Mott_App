@@ -1626,6 +1626,7 @@
 		AF86808D1462158200A371B1 /* Zurschmiede, Zachary, Level 3, Check-In, (3-717C).jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF867A3E1462158000A371B1 /* Zurschmiede, Zachary, Level 3, Check-In, (3-717C).jpg */; };
 		AF86808F1462362300A371B1 /* Mott.sql in Resources */ = {isa = PBXBuildFile; fileRef = AF86808E1462362100A371B1 /* Mott.sql */; };
 		AF86809514624D7D00A371B1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF86809414624D7C00A371B1 /* libsqlite3.0.dylib */; };
+		F90E3FA2147700D900BD57F2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F90E3FA1147700D900BD57F2 /* logo.png */; };
 		F9380CEE144CABBA00FC7F17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CED144CABBA00FC7F17 /* UIKit.framework */; };
 		F9380CF0144CABBA00FC7F17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CEF144CABBA00FC7F17 /* Foundation.framework */; };
 		F9380CF6144CABBA00FC7F17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9380CF4144CABBA00FC7F17 /* InfoPlist.strings */; };
@@ -3290,6 +3291,7 @@
 		AF868090146241F500A371B1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		AF86809214624CDB00A371B1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AF86809414624D7C00A371B1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		F90E3FA1147700D900BD57F2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F9380CE9144CABBA00FC7F17 /* Mott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9380CED144CABBA00FC7F17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F9380CEF144CABBA00FC7F17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -5027,6 +5029,7 @@
 		F9380CF1144CABBA00FC7F17 /* Mott */ = {
 			isa = PBXGroup;
 			children = (
+				F90E3FA1147700D900BD57F2 /* logo.png */,
 				AF86808E1462362100A371B1 /* Mott.sql */,
 				AF8673EF1462157C00A371B1 /* thumbnails */,
 				F9D9EDDB1457A71600186964 /* 180-stickynote.png */,
@@ -6784,6 +6787,7 @@
 				AF86808C1462158200A371B1 /* Zurschmiede, Koreen, Level 3, Check-In, (3-717C).jpg in Resources */,
 				AF86808D1462158200A371B1 /* Zurschmiede, Zachary, Level 3, Check-In, (3-717C).jpg in Resources */,
 				AF86808F1462362300A371B1 /* Mott.sql in Resources */,
+				F90E3FA2147700D900BD57F2 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
