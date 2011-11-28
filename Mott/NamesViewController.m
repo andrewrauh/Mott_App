@@ -85,7 +85,11 @@
     NSString *room = [rooms objectAtIndex:indexPath.row];
     UIImage *image = [UIImage imageNamed:picturePath];
     
-    [[cell imageView] setImage:image];
+    UIGraphicsBeginImageContext(CGSizeMake(90, 90));
+    [image drawInRect:CGRectMake(0, 0, 90, 90)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [[cell imageView] setImage:scaledImage];
 
 
     
@@ -95,6 +99,8 @@
     
     return cell;
 }
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(self.tileDisplayView==nil)
