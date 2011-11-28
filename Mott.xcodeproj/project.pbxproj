@@ -1653,6 +1653,7 @@
 		F93D87161453C5D10037481D /* tile_project.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D870F1453C5D10037481D /* tile_project.png */; };
 		F93D87171453C5D10037481D /* tiles_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = F93D87101453C5D10037481D /* tiles_bottom.png */; };
 		F93D87191453C96F0037481D /* football.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F93D87181453C96F0037481D /* football.jpg */; };
+		F94FAA60148443D800E872B4 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F94FAA5F148443D800E872B4 /* app_icon.png */; };
 		F97D696B14578ECC00AC6AD8 /* LocationSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = F97D696914578ECC00AC6AD8 /* LocationSearch.m */; };
 		F97D696C14578ECC00AC6AD8 /* LocationSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = F97D696A14578ECC00AC6AD8 /* LocationSearch.xib */; };
 		F9B407FC14575032001D2247 /* bgE.png in Resources */ = {isa = PBXBuildFile; fileRef = F9B407FB14575032001D2247 /* bgE.png */; };
@@ -3332,6 +3333,7 @@
 		F93D870F1453C5D10037481D /* tile_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_project.png; sourceTree = "<group>"; };
 		F93D87101453C5D10037481D /* tiles_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiles_bottom.png; sourceTree = "<group>"; };
 		F93D87181453C96F0037481D /* football.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = football.jpg; sourceTree = "<group>"; };
+		F94FAA5F148443D800E872B4 /* app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon.png; sourceTree = "<group>"; };
 		F97D696814578ECC00AC6AD8 /* LocationSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearch.h; sourceTree = "<group>"; };
 		F97D696914578ECC00AC6AD8 /* LocationSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearch.m; sourceTree = "<group>"; };
 		F97D696A14578ECC00AC6AD8 /* LocationSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSearch.xib; sourceTree = "<group>"; };
@@ -4990,6 +4992,7 @@
 		F9380CDE144CABBA00FC7F17 = {
 			isa = PBXGroup;
 			children = (
+				F94FAA5F148443D800E872B4 /* app_icon.png */,
 				AF86809414624D7C00A371B1 /* libsqlite3.0.dylib */,
 				AF86809214624CDB00A371B1 /* libsqlite3.dylib */,
 				F9D9EDDD1457C44800186964 /* LevelNamesTableViewController.h */,
@@ -6788,6 +6791,7 @@
 				AF86808D1462158200A371B1 /* Zurschmiede, Zachary, Level 3, Check-In, (3-717C).jpg in Resources */,
 				AF86808F1462362300A371B1 /* Mott.sql in Resources */,
 				F90E3FA2147700D900BD57F2 /* logo.png in Resources */,
+				F94FAA60148443D800E872B4 /* app_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
