@@ -37,7 +37,11 @@
     [super viewDidLoad];
     self.tbView.dataSource = self;
     self.tbView.delegate = self;
-    self.tbView.rowHeight = 90;    
+    self.tbView.rowHeight = 90; 
+    self.title = @"Tiles";
+    //[[[self.tabBarController.viewControllers objectAtIndex:0] navigationItem] setTitle:@"Tiles"];
+    
+    //[[self.tabBarController.viewControllers objectAtIndex:0] navigationBar] setTitleView
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -129,8 +133,13 @@
     [self.tileDisplayView setLevel:[levels objectAtIndex:indexPath.row]];
     [self.tileDisplayView setRoom:[rooms objectAtIndex:indexPath.row]];
     
-       
-    [self presentModalViewController:self.tileDisplayView animated:YES];
+    if(self.tabBarController.selectedIndex==0)
+    {
+        [[self.tabBarController.viewControllers objectAtIndex:0] pushViewController:self.tileDisplayView animated:YES];
+    }else
+    {
+        [[self.tabBarController.viewControllers objectAtIndex:1] pushViewController:self.tileDisplayView animated:YES];
+    }
     
 } 
 

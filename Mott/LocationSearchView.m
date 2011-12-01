@@ -44,27 +44,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    //
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     //
@@ -145,7 +124,8 @@
     [levels release];
     [rooms release];
 
-    [self presentModalViewController:self.namesView  animated:YES];
+    [[self.tabBarController.viewControllers objectAtIndex:1]pushViewController:self.namesView animated:YES]; 
+    //[self presentModalViewController:self.namesView  animated:YES];
 }
 
 

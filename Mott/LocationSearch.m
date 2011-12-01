@@ -93,7 +93,7 @@
         [abv release];
         
     }
-    [self presentModalViewController:self.levelNamesTableViewController  animated:YES];
+    [[self.tabBarController.viewControllers objectAtIndex:1] pushViewController:self.levelNamesTableViewController animated:YES]; 
     
     
     NSMutableArray*  firstNames = [[NSMutableArray alloc]init];
@@ -143,7 +143,7 @@
         [abv release];
     
     }
-    [self presentModalViewController:self.levelNamesTableViewController  animated:YES];
+    [[self.tabBarController.viewControllers objectAtIndex:0] pushViewController:self.levelNamesTableViewController animated:YES];
     
     for(int i = 0;i<[picLoc count];i++)
     {

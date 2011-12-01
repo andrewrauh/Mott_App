@@ -218,9 +218,11 @@
     //[self presentModalViewController:self.namesView animated:YES];
     [self.enterName resignFirstResponder];
     [self.enterName setText:@""];
-    [self presentModalViewController:self.namesView animated:YES];
+    [[self.tabBarController.viewControllers objectAtIndex:0] pushViewController:namesView animated:YES];
+    //[self presentModalViewController:self.namesView animated:YES];
     
 }
+/*
 -(IBAction)openAboutUs:(id)sender {
     
     if(self.aboutView==nil)
@@ -233,6 +235,7 @@
     
     
 }
+ */
 
 - (void)textFieldDidEndEditing:(UITextField *)textFieldd
 {

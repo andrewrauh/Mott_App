@@ -34,12 +34,33 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    /*
+    UINavigationController *navigationController = nil;
+    navigationController = [[UINavigationController alloc] initWithRootViewController:<Your View controller1>];
+    [tabBarViewControllers addObject:navigationController];
+    [navigationController release];
+    navigationController = nil;
+    */
+    
+    UIViewController *viewController1 = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];    
+    UINavigationController *navigationController1 = [[[UINavigationController alloc]initWithRootViewController:viewController1]autorelease];
+    navigationController1.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    //navigationController1.navigationBar.tintColor = [UIColor colorWithRed:14.0f/255.0f green:9.0f/255.0f blue:69.0f/255.0f alpha:1.0f];
+
+    //navigationController1.navigationBar.tintC[UIColor blueColor];:1.0f];
+
+
     UIViewController *viewController2 = [[[LocationSearchView alloc]initWithNibName:@"LocationSearchView" bundle:nil]autorelease];
+    UINavigationController *navigationController2 = [[[UINavigationController alloc]initWithRootViewController:viewController2]autorelease];
+    navigationController2.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
     UIViewController *viewController3 = [[[aboutViewController alloc] initWithNibName:@"aboutViewController" bundle:nil] autorelease];
+    UINavigationController *navigationController3 = [[[UINavigationController alloc]initWithRootViewController:viewController3]autorelease];
+    navigationController3.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    
     //UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1,viewController2, viewController3, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navigationController1,navigationController2, navigationController3, nil];
     self.window.rootViewController = self.tabBarController;
     
     //Set up SQlite Database
