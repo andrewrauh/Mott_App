@@ -56,6 +56,8 @@
     firstNameLabel.textAlignment = UITextAlignmentCenter;
     secondLabel.text = secondLabelContent;
     secondLabel.textAlignment = UITextAlignmentCenter;
+    
+    self.title = [NSString stringWithFormat:@"%@ %@",firstName, lastName];
 
 }
 
