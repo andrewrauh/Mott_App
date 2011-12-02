@@ -9,7 +9,7 @@
 #import "TileDisplayView.h"
 
 @implementation TileDisplayView
-@synthesize firstName, lastName, fullName, firstNameLabel, lastNameLabel, fullSizeTile, imageView, navBar1, level, room, secondLabel;
+@synthesize firstName, lastName, fullName, firstNameLabel, lastNameLabel, fullSizeTile, imageView, navBar1, location, secondLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,12 +49,11 @@
     fullName = [[firstName stringByAppendingString:@" "] stringByAppendingString:lastName];
 
     
-    NSString *secondLabelContent = [[level stringByAppendingString:@", "]stringByAppendingString:room];
     firstNameLabel.text = fullName;
     
     imageView.image = fullSizeTile;
     firstNameLabel.textAlignment = UITextAlignmentCenter;
-    secondLabel.text = secondLabelContent;
+    secondLabel.text = location;
     secondLabel.textAlignment = UITextAlignmentCenter;
     
     self.title = [NSString stringWithFormat:@"%@ %@",firstName, lastName];

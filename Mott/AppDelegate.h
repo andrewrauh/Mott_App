@@ -17,17 +17,24 @@
 	// Array to store the animal objects
 	NSMutableArray *firstNames;
     NSMutableArray *lastNames;
-    NSMutableArray *levels;
-    NSMutableArray *rooms;
-    NSMutableArray *imagePaths;
+    NSMutableArray *locations;
+    NSMutableArray *databaseImages;
+    NSMutableArray *thumbnailImages;
+    /*
+        firstNames
+        lastNames
+        locations
+        databaseImages
+        thumbnailImages
+     */
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,retain) NSMutableArray *firstNames;
 @property (nonatomic,retain) NSMutableArray *lastNames;
-@property (nonatomic,retain) NSMutableArray *levels;
-@property (nonatomic,retain) NSMutableArray *rooms;
-@property (nonatomic,retain) NSMutableArray *imagePaths;
+@property (nonatomic,retain) NSMutableArray *locations;
+@property (nonatomic,retain) NSMutableArray *databaseImages;
+@property (nonatomic,retain) NSMutableArray *thumbnailImages;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 

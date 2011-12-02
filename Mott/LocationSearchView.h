@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NamesViewController.h"
+#import "Rooms.h"
 @interface LocationSearchView : UIViewController<UITableViewDelegate,UITableViewDataSource>
 {
     IBOutlet UITableView *tbView;
-    NamesViewController *namesView;
+    Rooms *rooms;
 }
 @property(nonatomic,retain)IBOutlet UITableView *tbView;
-@property(nonatomic,retain)NamesViewController *namesView;
+@property(nonatomic,retain)Rooms *rooms;
 
 -(void) getItemsForLevel:(NSInteger) intRow;
 

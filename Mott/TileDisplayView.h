@@ -13,8 +13,7 @@
     NSString *firstName;
     NSString *lastName;
     UIImage *fullSizeTile;
-    NSString *level;
-    NSString *room;
+    NSString *location;
     NSString *fullName;
     IBOutlet    UILabel *firstNameLabel;
     IBOutlet    UILabel *lastNameLabel;
@@ -25,8 +24,7 @@
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
 @property (nonatomic, retain) UIImage *fullSizeTile;
-@property (nonatomic, retain) NSString *level;
-@property (nonatomic, retain) NSString *room;
+@property (nonatomic, retain) NSString *location;
 @property (nonatomic, retain) NSString *fullName;
 @property (nonatomic, retain) IBOutlet UILabel *firstNameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *secondLabel;

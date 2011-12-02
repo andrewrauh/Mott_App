@@ -98,11 +98,18 @@
     //NSURLRequest *request = 
     //NSString *firstName = [namesArray objectAtIndex:0];
     //NSLog(names);
+    /*
+     firstNames
+     lastNames
+     locations
+     databaseImages
+     thumbnailImages
+     */
     NSMutableArray*  firstNames = [[NSMutableArray alloc]init];
     NSMutableArray* lastNames = [[NSMutableArray alloc]init];
-    NSMutableArray* picLoc = [[NSMutableArray alloc]init];
-    NSMutableArray* levels = [[NSMutableArray alloc]init];
-    NSMutableArray* rooms = [[NSMutableArray alloc]init];
+    NSMutableArray* locations = [[NSMutableArray alloc]init];
+    NSMutableArray* databaseImages = [[NSMutableArray alloc]init];
+    NSMutableArray* thumbnailImages = [[NSMutableArray alloc]init];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
 
     
@@ -126,9 +133,9 @@
                     //Add to arrays
                     [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
                     [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
-                    [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
-                    [levels addObject:[appDelegate.levels objectAtIndex:i]];
-                    [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+                    [locations addObject:[appDelegate.locations objectAtIndex:i]];
+                    [databaseImages addObject:[appDelegate.databaseImages objectAtIndex:i]];
+                    [thumbnailImages addObject:[appDelegate.thumbnailImages objectAtIndex:i]];
                 }
             }
             else
@@ -137,9 +144,9 @@
                 //Add to arrays
                 [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
                 [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
-                [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
-                [levels addObject:[appDelegate.levels objectAtIndex:i]];
-                [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+                [locations addObject:[appDelegate.locations objectAtIndex:i]];
+                [databaseImages addObject:[appDelegate.databaseImages objectAtIndex:i]];
+                [thumbnailImages addObject:[appDelegate.thumbnailImages objectAtIndex:i]];
             }
                       
         }
@@ -147,6 +154,13 @@
     }
     else
     {
+        /*
+         firstNames
+         lastNames
+         locations
+         databaseImages
+         thumbnailImages
+         */
         NSLog(@"names array count was 1");
         for(int i =0;i<[appDelegate.firstNames count];i++)
         {
@@ -164,9 +178,9 @@
                     //Add to arrays
                     [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
                     [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
-                    [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
-                    [levels addObject:[appDelegate.levels objectAtIndex:i]];
-                    [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+                    [locations addObject:[appDelegate.locations objectAtIndex:i]];
+                    [databaseImages addObject:[appDelegate.databaseImages objectAtIndex:i]];
+                    [thumbnailImages addObject:[appDelegate.thumbnailImages objectAtIndex:i]];
                 }
             }
             else
@@ -174,9 +188,9 @@
                 //Add to arrays
                 [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
                 [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
-                [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
-                [levels addObject:[appDelegate.levels objectAtIndex:i]];
-                [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+                [locations addObject:[appDelegate.locations objectAtIndex:i]];
+                [databaseImages addObject:[appDelegate.databaseImages objectAtIndex:i]];
+                [thumbnailImages addObject:[appDelegate.thumbnailImages objectAtIndex:i]];
             }
             
         }
@@ -200,20 +214,15 @@
     }
     [namesView setFirstNames:firstNames];
     [namesView setLastNames:lastNames];
-    [namesView setPicLoc:picLoc];
-    [namesView setLevels:levels];
-    [namesView setRooms:rooms];
+    [namesView setLocations:locations];
+    [namesView setDatabaseImages:databaseImages];
+    [namesView setThumbnailImages:thumbnailImages];
     
-    firstNames = nil;
     [firstNames release];
-    lastNames = nil;
     [lastNames release];
-    picLoc = nil;
-    [picLoc release];
-    levels = nil;
-    [levels release];
-    rooms = nil;
-    [rooms release];
+    [locations release];
+    [databaseImages release];
+    [thumbnailImages release];
     
     //[self presentModalViewController:self.namesView animated:YES];
     [self.enterName resignFirstResponder];

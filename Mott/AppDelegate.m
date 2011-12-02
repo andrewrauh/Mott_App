@@ -16,15 +16,15 @@
 
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
-@synthesize firstNames, lastNames, levels, rooms, imagePaths;
+@synthesize firstNames, lastNames, locations, databaseImages, thumbnailImages;
 
 - (void)dealloc
 {
     [firstNames release];
     [lastNames release];
-    [levels release];
-    [rooms release];
-    [imagePaths release];
+    [locations release];
+    [databaseImages release];
+    [thumbnailImages release];
     [_window release];
     [_tabBarController release];
     [super dealloc];
@@ -44,19 +44,19 @@
     
     UIViewController *viewController1 = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];    
     UINavigationController *navigationController1 = [[[UINavigationController alloc]initWithRootViewController:viewController1]autorelease];
-    navigationController1.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    //navigationController1.navigationBar.tintColor = [UIColor colorWithRed:14.0f/255.0f green:9.0f/255.0f blue:69.0f/255.0f alpha:1.0f];
+    //navigationController1.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    navigationController1.navigationBar.tintColor = [UIColor colorWithRed:0.0f/255.0f green:2.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
 
     //navigationController1.navigationBar.tintC[UIColor blueColor];:1.0f];
 
 
     UIViewController *viewController2 = [[[LocationSearchView alloc]initWithNibName:@"LocationSearchView" bundle:nil]autorelease];
     UINavigationController *navigationController2 = [[[UINavigationController alloc]initWithRootViewController:viewController2]autorelease];
-    navigationController2.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    navigationController2.navigationBar.tintColor = [UIColor colorWithRed:0.0f/255.0f green:2.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
     
     UIViewController *viewController3 = [[[aboutViewController alloc] initWithNibName:@"aboutViewController" bundle:nil] autorelease];
     UINavigationController *navigationController3 = [[[UINavigationController alloc]initWithRootViewController:viewController3]autorelease];
-    navigationController3.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    navigationController3.navigationBar.tintColor = [UIColor colorWithRed:0.0f/255.0f green:2.0f/255.0f blue:94.0f/255.0f alpha:1.0f];
     
     //UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
@@ -64,7 +64,7 @@
     self.window.rootViewController = self.tabBarController;
     
     //Set up SQlite Database
-    databaseName = @"Mott.sql";
+    databaseName = @"data.db";
     
 	// Get the path to the documents directory and append the databaseName
 	NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -115,15 +115,14 @@
 	// Init the animals Array
 	firstNames  = [[NSMutableArray alloc] init];
     lastNames = [[NSMutableArray alloc]init];
-    levels = [[NSMutableArray alloc]init];
-    rooms = [[NSMutableArray alloc]init];
-    imagePaths = [[NSMutableArray alloc]init];
-    
+    locations = [[NSMutableArray alloc]init];
+    databaseImages = [[NSMutableArray alloc]init];
+    thumbnailImages = [[NSMutableArray alloc]init];
     
 	// Open the database from the users filessytem
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		// Setup the SQL Statement and compile it for faster access
-		const char *sqlStatement = "select * from data";
+		const char *sqlStatement = "select * from children";
 		sqlite3_stmt *compiledStatement;
 		if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
 			// Loop through the results and add them to the feeds array
@@ -131,15 +130,16 @@
 				// Read the data from the result row
 				NSString *lastName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
 				NSString *firstName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
-				NSString *level = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
-                NSString *room = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 5)];
-                NSString *imagePath = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 6)];
+                NSString *location = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
+                NSString *image = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 5)];
+                NSString *thumbnail = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 6)];
+                NSLog(@"Location: %@",location);
                 
-                [lastNames addObject:lastName];
                 [firstNames addObject:firstName];
-                [levels  addObject:level];
-                [rooms addObject:room];
-                [imagePaths addObject:imagePath];
+                [lastNames addObject:lastName];
+                [locations addObject:location];
+                [databaseImages addObject:image];
+                [thumbnailImages addObject:thumbnail];
                 
 			}
 		}

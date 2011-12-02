@@ -10,7 +10,7 @@
 #import "JSON.h"
 #import "AppDelegate.h"
 @implementation LocationSearchView
-@synthesize tbView, namesView;
+@synthesize tbView, rooms;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,57 +74,106 @@
 -(void) getItemsForLevel:(NSInteger) intRow
 {
     
-    NSMutableArray*  firstNames = [[NSMutableArray alloc]init];
-    NSMutableArray* lastNames = [[NSMutableArray alloc]init];
-    NSMutableArray* picLoc = [[NSMutableArray alloc]init];
-    NSMutableArray* levels = [[NSMutableArray alloc]init];
-    NSMutableArray* rooms = [[NSMutableArray alloc]init];
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    //NSMutableArray*  firstNames = [[NSMutableArray alloc]init];
+    //NSMutableArray* lastNames = [[NSMutableArray alloc]init];
+    //NSMutableArray* picLoc = [[NSMutableArray alloc]init];
+    //NSMutableArray* levels = [[NSMutableArray alloc]init];
+    //NSMutableArray* rooms = [[NSMutableArray alloc]init];
+    NSMutableArray *roomsArray = [[NSMutableArray alloc]init];
+    //AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     
+    int level = intRow + 2;
+    NSLog(@"Level: %i",level);
+    switch (level) {
+        case 2:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Family Center Greet Desk"];
+            [roomsArray addObject:@"Connector"];
+            [roomsArray addObject:@"ED Reception"];
+            [roomsArray addObject:@"Triage Station"];
+            break;
+        case 3:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Greet Desk"];
+            break;
+        case 4:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Greet Desk"];
+            break;
+        case 5:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            break;
+        case 6:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Business Office"];
+            break;
+        case 7:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Greet Desk"];
+            break;
+        case 8:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Greet Desk"];
+            break;
+        case 10:
+            [roomsArray addObject:@"Greet Desk"];
+            break;
+        case 11:
+            [roomsArray addObject:@"Check-In"];
+            [roomsArray addObject:@"Check-Out"];
+            [roomsArray addObject:@"Greet Desk"];
+            [roomsArray addObject:@"ADP Reception"];
+            break;
+        case 12:
+            [roomsArray addObject:@"Greet Desk"];
+            break;
+        default:
+            break;
+    }
+    /*
     NSString *levelString = [NSString stringWithFormat:@"Level %i",intRow+2];
     
-    for(int i =0;i<[appDelegate.levels count];i++)
+    for(int i =0;i<[appDelegate.locations count];i++)
     {
-        NSString *stringToSearch = [appDelegate.levels objectAtIndex:i];
+        NSString *stringToSearch = [appDelegate.locations objectAtIndex:i];
         if([[stringToSearch lowercaseString] rangeOfString:[levelString lowercaseString]].location==NSNotFound)
         {
             NSLog(@"Did not find current level in levels object at index %i",i);
         }
         else
         {
-            NSLog(@"Adding to arrays");
+            NSLog(@"Adding to arrays, found level");
             //Add to arrays
-            [firstNames addObject:[appDelegate.firstNames objectAtIndex:i]];
-            [lastNames addObject:[appDelegate.lastNames objectAtIndex:i]];
-            [picLoc addObject:[appDelegate.imagePaths objectAtIndex:i]];
-            [levels addObject:[appDelegate.levels objectAtIndex:i]];
-            [rooms addObject:[appDelegate.rooms objectAtIndex:i]];
+            
+    
+            
+            //[roomsArray addObject:[appDelegate.rooms objectAtIndex:i]];
         }
     }
+*/
     
     
     
-    if(self.namesView==nil)
+    if(self.rooms==nil)
     {
-        NamesViewController *nvc = [[NamesViewController alloc]initWithNibName:@"NamesViewController" bundle:[NSBundle mainBundle]];
-        self.namesView = nvc;
-        [nvc release];
-        
-    }
+        Rooms *rvc = [[Rooms alloc]initWithNibName:@"Rooms" bundle:[NSBundle mainBundle]];
+        self.rooms = rvc;
+        [rvc release];
+    }    
+    [self.rooms setRoomsArray:roomsArray];
+    [self.rooms setLevel:level];
+    //[rooms setRoomsArr];
 
-    [namesView setFirstNames:firstNames];
-    [namesView setLastNames:lastNames];
-    [namesView setPicLoc:picLoc];
-    [namesView setLevels:levels];
-    [namesView setRooms:rooms];
-    
-    [firstNames release];
-    [lastNames release];
-    [picLoc release];
-    [levels release];
-    [rooms release];
+    [roomsArray release];;
 
-    [[self.tabBarController.viewControllers objectAtIndex:1]pushViewController:self.namesView animated:YES]; 
+    [[self.tabBarController.viewControllers objectAtIndex:1]pushViewController:self.rooms animated:YES]; 
     //[self presentModalViewController:self.namesView  animated:YES];
 }
 

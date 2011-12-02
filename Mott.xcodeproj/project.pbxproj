@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF796BDB1487F7470054E746 /* Rooms.m in Sources */ = {isa = PBXBuildFile; fileRef = AF796BD91487F7470054E746 /* Rooms.m */; };
+		AF796BDC1487F7470054E746 /* Rooms.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF796BDA1487F7470054E746 /* Rooms.xib */; };
+		AF796BDF148823DC0054E746 /* data.db in Resources */ = {isa = PBXBuildFile; fileRef = AF796BDE148823DC0054E746 /* data.db */; };
 		AF8673EC145BA16100A371B1 /* LocationSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8673EA145BA16100A371B1 /* LocationSearchView.m */; };
 		AF8673ED145BA16100A371B1 /* LocationSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF8673EB145BA16100A371B1 /* LocationSearchView.xib */; };
 		AF867A3F1462158100A371B1 /* Abozaid, Layla, Level 2, ED Reception, (2-420).jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF8673F01462157C00A371B1 /* Abozaid, Layla, Level 2, ED Reception, (2-420).jpg */; };
@@ -1670,6 +1673,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF796BD81487F7460054E746 /* Rooms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rooms.h; sourceTree = "<group>"; };
+		AF796BD91487F7470054E746 /* Rooms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rooms.m; sourceTree = "<group>"; };
+		AF796BDA1487F7470054E746 /* Rooms.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Rooms.xib; sourceTree = "<group>"; };
+		AF796BDE148823DC0054E746 /* data.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.db; sourceTree = "<group>"; };
 		AF8673E9145BA16100A371B1 /* LocationSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationSearchView.h; sourceTree = "<group>"; };
 		AF8673EA145BA16100A371B1 /* LocationSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationSearchView.m; sourceTree = "<group>"; };
 		AF8673EB145BA16100A371B1 /* LocationSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationSearchView.xib; sourceTree = "<group>"; };
@@ -5032,6 +5039,7 @@
 		F9380CF1144CABBA00FC7F17 /* Mott */ = {
 			isa = PBXGroup;
 			children = (
+				AF796BDE148823DC0054E746 /* data.db */,
 				F90E3FA1147700D900BD57F2 /* logo.png */,
 				AF86808E1462362100A371B1 /* Mott.sql */,
 				AF8673EF1462157C00A371B1 /* thumbnails */,
@@ -5063,6 +5071,9 @@
 				AF8673EB145BA16100A371B1 /* LocationSearchView.xib */,
 				F9B407FE14575434001D2247 /* aboutViewController.h */,
 				F9B407FF14575434001D2247 /* aboutViewController.m */,
+				AF796BD81487F7460054E746 /* Rooms.h */,
+				AF796BD91487F7470054E746 /* Rooms.m */,
+				AF796BDA1487F7470054E746 /* Rooms.xib */,
 				F9B4080014575434001D2247 /* aboutViewController.xib */,
 				F9380D00144CABBA00FC7F17 /* ViewController.xib */,
 				F9380CF2144CABBA00FC7F17 /* Supporting Files */,
@@ -6792,6 +6803,8 @@
 				AF86808F1462362300A371B1 /* Mott.sql in Resources */,
 				F90E3FA2147700D900BD57F2 /* logo.png in Resources */,
 				F94FAA60148443D800E872B4 /* app_icon.png in Resources */,
+				AF796BDC1487F7470054E746 /* Rooms.xib in Resources */,
+				AF796BDF148823DC0054E746 /* data.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6817,6 +6830,7 @@
 				F97D696B14578ECC00AC6AD8 /* LocationSearch.m in Sources */,
 				F9D9EDE01457C44800186964 /* LevelNamesTableViewController.m in Sources */,
 				AF8673EC145BA16100A371B1 /* LocationSearchView.m in Sources */,
+				AF796BDB1487F7470054E746 /* Rooms.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
