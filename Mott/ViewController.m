@@ -19,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Search", @"Search");
+        self.title = NSLocalizedString(@"The Tile Project", @"The Tile Project");
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Search" image:[UIImage imageNamed:@"06-magnify.png"] tag:0];
         //self.tabBarItem.title = @"Search";
     }

@@ -1630,6 +1630,7 @@
 		AF86808F1462362300A371B1 /* Mott.sql in Resources */ = {isa = PBXBuildFile; fileRef = AF86808E1462362100A371B1 /* Mott.sql */; };
 		AF86809514624D7D00A371B1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF86809414624D7C00A371B1 /* libsqlite3.0.dylib */; };
 		F90E3FA2147700D900BD57F2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F90E3FA1147700D900BD57F2 /* logo.png */; };
+		F9266A7D14AD6837002540DC /* backgroundtile.png in Resources */ = {isa = PBXBuildFile; fileRef = F9266A7C14AD6837002540DC /* backgroundtile.png */; };
 		F9380CEE144CABBA00FC7F17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CED144CABBA00FC7F17 /* UIKit.framework */; };
 		F9380CF0144CABBA00FC7F17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9380CEF144CABBA00FC7F17 /* Foundation.framework */; };
 		F9380CF6144CABBA00FC7F17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9380CF4144CABBA00FC7F17 /* InfoPlist.strings */; };
@@ -3300,6 +3301,7 @@
 		AF86809214624CDB00A371B1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AF86809414624D7C00A371B1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		F90E3FA1147700D900BD57F2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F9266A7C14AD6837002540DC /* backgroundtile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundtile.png; sourceTree = "<group>"; };
 		F9380CE9144CABBA00FC7F17 /* Mott.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mott.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9380CED144CABBA00FC7F17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F9380CEF144CABBA00FC7F17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -5039,6 +5041,7 @@
 		F9380CF1144CABBA00FC7F17 /* Mott */ = {
 			isa = PBXGroup;
 			children = (
+				F9266A7C14AD6837002540DC /* backgroundtile.png */,
 				AF796BDE148823DC0054E746 /* data.db */,
 				F90E3FA1147700D900BD57F2 /* logo.png */,
 				AF86808E1462362100A371B1 /* Mott.sql */,
@@ -6805,6 +6808,7 @@
 				F94FAA60148443D800E872B4 /* app_icon.png in Resources */,
 				AF796BDC1487F7470054E746 /* Rooms.xib in Resources */,
 				AF796BDF148823DC0054E746 /* data.db in Resources */,
+				F9266A7D14AD6837002540DC /* backgroundtile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
